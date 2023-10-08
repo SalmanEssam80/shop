@@ -78,7 +78,7 @@
                     <!-- Cart -->
                     <ul class="top-menu text-right list-inline">
                         <li class="dropdown cart-nav dropdown-slide">
-                            <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+                            <a href="{{ route('cart')}}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                     class="tf-ion-android-cart"></i>Cart</a>
                             <div class="dropdown-menu cart-dropdown">
                                 <!-- Cart Item -->
@@ -171,11 +171,13 @@
                             <a href="{{ route('blog') }}">Blog</a>
                         </li>
                         <li class="dropdown ">
-                            <a href="{{ route('products') }}">Products</a>
-                        </li>
-                        <li class="dropdown ">
                             <a href="{{ route('user_dashboard') }}">Dashboard</a>
                         </li>
+                        @auth
+                        <li class="dropdown ">
+                            <a href="{{ route('cart') }}">My cart</a>
+                        </li>
+                        @endauth
                         <li class="dropdown ">
                             <a href="{{ route('contact_us') }}">Contact</a>
                         </li>
@@ -185,6 +187,19 @@
                         <li class="dropdown ">
                             <a href="{{ route('faq') }}">FAQ</a>
                         </li>
+                        @guest
+                        <li class="dropdown ">
+                            <a href="{{ route('login') }}">login</a>
+                        </li>
+                        @endguest
+                        @auth
+                        <li class="dropdown ">
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">logout</a>
+                            <form action="{{ route('logout')}}" id="logout-form" method="post" class="d-none">
+                            @csrf
+                            </form>
+                        </li>
+                        @endauth
                     </ul><!-- / .nav .navbar-nav -->
                 </div>
             </div><!-- / .container -->
@@ -224,13 +239,10 @@
                             <a href="contact.html">CONTACT</a>
                         </li>
                         <li>
-                            <a href="shop.html">SHOP</a>
+                            <a href="{{ route('shop')}}">SHOP</a>
                         </li>
                         <li>
-                            <a href="pricing.html">Pricing</a>
-                        </li>
-                        <li>
-                            <a href="contact.html">PRIVACY POLICY</a>
+                            <a href="{{ route('privacy')}}">PRIVACY POLICY</a>
                         </li>
                     </ul>
                     <p class="copyright-text">Copyright &copy;2023, Designed &amp; Developed by <a
@@ -255,11 +267,6 @@
     <!-- slick Carousel -->
     <script src="{{ asset('plugins/slick/slick.min.js') }}"></script>
     <script src="{{ asset('plugins/slick/slick-animation.min.js') }}"></script>
-
-    <!-- Google Mapl -->
-    <script src="{{ asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw') }}">
-    </script>
-    <script type="text/javascript" src="{{ asset('plugins/google-map/gmap.js') }}"></script>
 
     <!-- Main Js File -->
     <script src="{{ asset('js/script.js') }}"></script>
