@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ProductCategory extends Model
 {
     use HasFactory;
-    protected $gaurded = ['id'];
+
+    protected $guarded = ['id'];
 
     public function category()  {
         return $this->belongsTo(Category::class);

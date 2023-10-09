@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class OrderDetails extends Model
 {
     use HasFactory;
-    protected $gaurded = ['id'];
+
+    protected $guarded = ['id'];
 
     public function order(){
         return $this->belongsTo(order::class);
