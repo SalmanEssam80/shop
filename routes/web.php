@@ -28,6 +28,14 @@ Route::view('/contact-us','contact_us')->name('contact_us');
 Route::view('/faq','faq')->name('faq');
 Route::view('/privacy','privacy')->name('privacy');
 
+
+
+Route::view('/admin/dashboard','admin.dashboard ')->name('admin.dashboard');
+
+Route::get('/contact/developer',function (){
+    return "contact developer";
+})->name('contact_developer');
+
 Route::get('/', function () {
     return view('welcome');
 });
