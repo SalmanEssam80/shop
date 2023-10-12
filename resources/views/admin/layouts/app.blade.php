@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{ asset('adminArea/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('adminArea/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <link rel="stylesheet" href="{{ asset('adminArea/dist/css/adminlte.min.css') }}">
+    @livewireScripts()
+    @livewireStyles()
 </head>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -697,21 +699,6 @@
             </div>
         </aside>
         <div class="content-wrapper">
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                                <li class="breadcrumb-item active">@yield('viewName')</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             @yield('admin.content')
 
