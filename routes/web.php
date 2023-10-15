@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Admin\Category;
 use App\Livewire\Admin\Clients;
 use App\Livewire\Admin\ContactedMessage;
 use App\Livewire\Admin\Orders;
@@ -36,7 +37,7 @@ Route::view('/privacy','privacy')->name('privacy');
 
 Route::view('/admin/dashboard','admin.dashboard ')->name('admin.dashboard');
 Route::get('/admin/products',Product::class)->name('admin.products');
-Route::view('/admin/category','admin.categories')->name('admin.categories');
+Route::get('/admin/category',Category::class)->name('admin.category');
 Route::get('/admin/orders',Orders::class)->name('admin.orders');
 Route::get('/admin/contactmessages',ContactedMessage::class)->name('admin.messages');
 Route::get('/admin/clients',Clients::class)->name('admin.clients');
