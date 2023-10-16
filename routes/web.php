@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\welcomeController;
 use App\Livewire\Admin\Category;
 use App\Livewire\Admin\Clients;
 use App\Livewire\Admin\ContactedMessage;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::get('/',[welcomeController::class,'welcome']);
 Route::view('/thankYou','confirmation')->name('thanks_for_shoping');
 Route::view('/dashboard','user_dashboard')->name('user_dashboard');
 Route::view('/cart','cart')->name('cart');
@@ -46,9 +47,6 @@ Route::get('/contact/developer',function (){
     return "contact developer";
 })->name('contact_developer');
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 

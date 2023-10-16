@@ -45,38 +45,21 @@
                     <h2>Product Category</h2>
                 </div>
             </div>
+        @forelse ($categories as $category )
             <div class="col-md-6">
                 <div class="category-box">
-                    <a href="#!">
-                        <img src="image/shop/category/category-1.jpg" alt="" />
+                    <a href="category/{{ $category->id }}">
+                        <img src="{{ config('app.url').$category->thumbnail }}" alt="" />
                         <div class="content">
-                            <h3>Clothes Sales</h3>
-                            <p>Shop New Season Clothing</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="category-box">
-                    <a href="#!">
-                        <img src="image/shop/category/category-2.jpg" alt="" />
-                        <div class="content">
-                            <h3>Smart Casuals</h3>
-                            <p>Get Wide Range Selection</p>
+                            <h3 class="">{{ $category->name }}</h3>
+                            <p>{{ $category->description }}</p>
                         </div>
                     </a>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="category-box category-box-2">
-                    <a href="#!">
-                        <img src="image/shop/category/category-3.jpg" alt="" />
-                        <div class="content">
-                            <h3>Jewellery</h3>
-                            <p>Special Design Comes First</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
+        @empty
+            <p class="text-danger">No category found!</p>
+        @endforelse
     </div>
 </section>
 

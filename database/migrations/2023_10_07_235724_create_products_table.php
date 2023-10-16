@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('weight');
+            $table->string('price');
             $table->string('barcode');
             $table->string('description');
             $table->string('image');
