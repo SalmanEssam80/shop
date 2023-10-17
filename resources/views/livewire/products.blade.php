@@ -9,16 +9,16 @@
                 <div class="preview-meta">
                     <ul>
                         <li>
-                        <span  data-toggle="modal" data-target="#product-modal">
-                            <i class="tf-ion-ios-search-strong"></i>
-                        </span>
+                            <a href="{{ route('show_searched_item_by_name',$product->name) }}" >
+                                <i class="tf-ion-ios-search-strong"></i>
+                            </a>
                         </li>
-                        <li wire:click="product_liked({{ $product->id }})">
-                            <span >
-                                <i class="tf-ion-ios-heart"></i>
-                            </span> </li>
+                        <li >
+                            <span id="productId"  value="{{ $product->id }}" data-pid="{{ $product->id }}"><i  class="tf-ion-ios-heart"></i>
+                            </span>
+                        </li>
                         <li>
-                            <a href="#!"><i class="tf-ion-android-cart"></i></a>
+                            <a href="{{ route('add_product_to_cart',$product->id) }}"><i class="tf-ion-android-cart"></i></a>
                         </li>
                     </ul>
                 </div>

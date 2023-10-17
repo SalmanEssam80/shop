@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\productLikeController;
 use App\Http\Controllers\welcomeController;
 use App\Livewire\Admin\Category;
 use App\Livewire\Admin\Clients;
@@ -20,7 +22,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[welcomeController::class,'welcome']);
-Route::get('/category/{id}',[welcomeController::class,'show_category_products']);
+Route::get('/category/{id}',[welcomeController::class,'show_searched_item_by_category'])->name('show_searched_item_by_category');
+Route::get('/product/{name}',[welcomeController::class,'show_searched_item_by_name'])->name('show_searched_item_by_name');
+Route::get('/search/{item}',[welcomeController::class,'show_searched_items'])->name('show_searched_items');
 Route::view('/thankYou','confirmation')->name('thanks_for_shoping');
 Route::view('/dashboard','user_dashboard')->name('user_dashboard');
 Route::view('/cart','cart')->name('cart');
@@ -45,6 +49,11 @@ Route::middleware('auth','checksuperadmin')->group(function (){
         Route::get('/contactmessages',ContactedMessage::class)->name('admin.messages');
         Route::get('/clients',Clients::class)->name('admin.clients');
     });
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/like/{id}',[productLikeController::class,'like'])->name('like-product');
+    Route::get('/add_to_cart/{id}',[CartController::class,'store'])->name('add_product_to_cart');
 });
 
 Route::get('/contact/developer',function (){

@@ -103,7 +103,9 @@
                                 data-hover="dropdown"><i class="tf-ion-ios-search-strong"></i> Search</a>
                             <ul class="dropdown-menu search-dropdown">
                                 <li>
-                                    <form action="post"><input type="search" class="form-control"
+                                    <form action="post">
+                                        @csrf
+                                        <input type="search" name="item" class="form-control"
                                             placeholder="Search..."></form>
                                 </li>
                             </ul>
@@ -217,7 +219,7 @@
                             <a href="{{ route('privacy')}}">PRIVACY POLICY</a>
                         </li>
                     </ul>
-                    <p class="copyright-text">Copyright &copy;2023, Designed &amp; Developed by <a
+                    <p class="copyright-text">Copyright &copy;2023,Developed by <a
                             href="https://github.com/SalmanEssam80">Salman Essam</a></p>
                 </div>
             </div>
