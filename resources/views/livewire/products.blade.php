@@ -13,9 +13,10 @@
                             <i class="tf-ion-ios-search-strong"></i>
                         </span>
                         </li>
-                        <li>
-                            <a><i wire:click="product_liked({{ $product->id }})" class="tf-ion-ios-heart"></i></a>
-                        </li>
+                        <li wire:click="product_liked({{ $product->id }})">
+                            <span >
+                                <i class="tf-ion-ios-heart"></i>
+                            </span> </li>
                         <li>
                             <a href="#!"><i class="tf-ion-android-cart"></i></a>
                         </li>

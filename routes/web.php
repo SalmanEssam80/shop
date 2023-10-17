@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[welcomeController::class,'welcome']);
+Route::get('/category/{id}',[welcomeController::class,'show_category_products']);
 Route::view('/thankYou','confirmation')->name('thanks_for_shoping');
 Route::view('/dashboard','user_dashboard')->name('user_dashboard');
 Route::view('/cart','cart')->name('cart');
@@ -35,13 +36,16 @@ Route::view('/faq','faq')->name('faq');
 Route::view('/privacy','privacy')->name('privacy');
 
 
-
-Route::view('/admin/dashboard','admin.dashboard ')->name('admin.dashboard');
-Route::get('/admin/products',Product::class)->name('admin.products');
-Route::get('/admin/category',Category::class)->name('admin.category');
-Route::get('/admin/orders',Orders::class)->name('admin.orders');
-Route::get('/admin/contactmessages',ContactedMessage::class)->name('admin.messages');
-Route::get('/admin/clients',Clients::class)->name('admin.clients');
+Route::middleware('auth','checksuperadmin')->group(function (){
+    Route::prefix('admin')->group(function (){
+        Route::view('/dashboard','admin.dashboard ')->name('admin.dashboard');
+        Route::get('/products',Product::class)->name('admin.products');
+        Route::get('/category',Category::class)->name('admin.category');
+        Route::get('/orders',Orders::class)->name('admin.orders');
+        Route::get('/contactmessages',ContactedMessage::class)->name('admin.messages');
+        Route::get('/clients',Clients::class)->name('admin.clients');
+    });
+});
 
 Route::get('/contact/developer',function (){
     return "contact developer";
