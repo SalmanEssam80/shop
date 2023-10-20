@@ -78,6 +78,7 @@
                 <div class="col-md-4 col-xs-12 col-sm-4">
                     <!-- Cart -->
                     <ul class="top-menu text-right list-inline">
+                        @auth
                         <li class="dropdown cart-nav dropdown-slide">
                             <a href="{{ route('cart')}}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                     class="tf-ion-android-cart"></i>Cart</a>
@@ -96,6 +97,7 @@
                             </div>
 
                         </li><!-- / Cart -->
+                        @endauth
 
                         <!-- Search -->
                         <li class="dropdown search dropdown-slide">
@@ -144,10 +146,10 @@
                         <li class="dropdown ">
                             <a href="{{ route('blog') }}">Blog</a>
                         </li>
+                        @auth
                         <li class="dropdown ">
                             <a href="{{ route('user_dashboard') }}">Dashboard</a>
                         </li>
-                        @auth
                         <li class="dropdown ">
                             <a href="{{ route('cart') }}">My cart</a>
                         </li>

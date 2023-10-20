@@ -54,6 +54,8 @@ Route::middleware('auth','checksuperadmin')->group(function (){
 Route::middleware('auth')->group(function () {
     Route::get('/like/{id}',[productLikeController::class,'like'])->name('like-product');
     Route::get('/add_to_cart/{id}',[CartController::class,'store'])->name('add_product_to_cart');
+    Route::view('/MyCart','cart')->name('cart');
+    Route::view('/MyProfile','profile')->name('user_profile');
 });
 
 Route::get('/contact/developer',function (){
