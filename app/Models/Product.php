@@ -15,6 +15,10 @@ class Product extends Model
         return $this->belongsTo(product_option::class);
     }
 
+    public function like(){
+        return $this->hasMany(Like::class);
+    }
+
     public function category(){
         return $this->belongsTo(Category::class);
     }

@@ -35,7 +35,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link rel="dns-prefetch" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
 
@@ -91,7 +91,7 @@
                                     @livewire('menu-cart')
                                 <ul class="text-center cart-buttons">
                                     <li><a href="cart.html" class="btn btn-small">View Cart</a></li>
-                                    <li><a href="checkout.html" class="btn btn-small btn-solid-border">Checkout</a>
+                                    <li><a href="{{ route('checkout')}}" class="btn btn-small btn-solid-border">Checkout</a>
                                     </li>
                                 </ul>
                             </div>

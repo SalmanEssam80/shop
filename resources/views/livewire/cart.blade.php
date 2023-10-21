@@ -66,7 +66,7 @@
                                     </table>
                                     {{-- i am still conpuse in this logic --}}
                                     <a href="{{ route('checkout') }}" class="btn btn-main pull-right "
-                                        @if ($products->count() < 0) disabled="" @endif>Checkout</a>
+                                        @if ($products->count() <= 0) disabled="" @endif>Checkout</a>
                                 </form>
                             </div>
                         </div>

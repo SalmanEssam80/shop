@@ -15,6 +15,13 @@ class welcomeController extends Controller
         ]);
     }
 
+    public function show_single_product($id)
+    {
+        return view('show_single_product',[
+            'product' => product::where('id',$id)->first()
+        ]);
+    }
+
     public function show_searched_items($item)
     {
         $products = Product::where('id', $item)->orWhere('name', 'LIKE', '%' . $item . '%')->orWhere('weight', $item)->orWhere('description', 'LIKE', '%' . $item . '%')->orWhere('price', $item)->get();
