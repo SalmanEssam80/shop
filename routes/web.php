@@ -41,6 +41,14 @@ Route::view('/privacy','privacy')->name('privacy');
 
 Route::get('/show_product/{id}',[welcomeController::class,'show_single_product'])->name('single_product');
 
+Route::get('searchItem', function()
+{
+    return view('search',[
+        'products' => $products,
+        'searchItem' => $item
+    ]);
+});
+
 Route::middleware('auth','checksuperadmin')->group(function (){
     Route::prefix('admin')->group(function (){
         Route::view('/dashboard','admin.dashboard ')->name('admin.dashboard');

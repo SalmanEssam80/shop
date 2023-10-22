@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="product-content">
-                <h4><a href="product/{{ $product->id }}">{{ $product->name }}</a></h4>
+                <h4><a href="{{ route('single_product',$product->id) }}">{{ $product->name }}</a></h4>
                 <p class="price">${{ $product->price }}</p>
             </div>
         </div>

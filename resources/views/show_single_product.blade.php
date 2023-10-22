@@ -59,6 +59,8 @@
                             <div class="post-thumb">
                                 <img class="img-responsive" src="{{ config('app.url') . $product->image }}" alt="">
                             </div>
+                            <br>
+                            <a href="{{ route('like-product',$product->id) }}" style="color:blueviolet" title="like this product">Like This</a>
                         </div>
                         <div class="post-social-share">
                             <h3 class="post-sub-heading">Share this post</h3>

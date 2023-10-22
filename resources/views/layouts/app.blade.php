@@ -54,7 +54,7 @@
                 <div class="col-md-4 col-xs-12 col-sm-4">
                     <div class="contact-number">
                         <i class="tf-ion-ios-telephone"></i>
-                        <span>0123-123-12312</span>
+                        <span>{{ env('MY_PHONE_NUMBER') }}</span>
                     </div>
                 </div>
                 <div class="col-md-4 col-xs-12 col-sm-4">
@@ -67,7 +67,7 @@
                                     font-size="40" font-family="AustinBold, Austin" font-weight="bold">
                                     <g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
                                         <text id="AVIATO">
-                                            <tspan x="108.94" y="325">Sellers</tspan>
+                                            <tspan x="108.94" y="325">{{ config('app.name') }}</tspan>
                                         </text>
                                     </g>
                                 </g>
@@ -81,7 +81,7 @@
                         @auth
                         <li class="dropdown cart-nav dropdown-slide">
                             <a href="{{ route('cart')}}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-                                    class="tf-ion-android-cart"></i>Cart</a>
+                                    class="tf-ion-android-cart"></i>{{ __("Cart") }}</a>
                             <div class="dropdown-menu cart-dropdown">
                                 <!-- Cart Item -->
                                 <div class="media">
@@ -99,19 +99,7 @@
                         </li><!-- / Cart -->
                         @endauth
 
-                        <!-- Search -->
-                        <li class="dropdown search dropdown-slide">
-                            <a href="#!" class="dropdown-toggle" data-toggle="dropdown"
-                                data-hover="dropdown"><i class="tf-ion-ios-search-strong"></i> Search</a>
-                            <ul class="dropdown-menu search-dropdown">
-                                <li>
-                                    <form action="post">
-                                        @csrf
-                                        <input type="search" name="item" class="form-control"
-                                            placeholder="Search..."></form>
-                                </li>
-                            </ul>
-                        </li><!-- / Search -->
+                        @livewire('menu-search-bar')
 
                     </ul><!-- / .nav .navbar-nav .navbar-right -->
                 </div>
