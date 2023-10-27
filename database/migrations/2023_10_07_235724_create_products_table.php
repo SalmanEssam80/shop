@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('weight');
             $table->string('price');
-            $table->string('barcode');
             $table->string('description');
             $table->string('image');
             $table->foreignId('category_id')->constrained();

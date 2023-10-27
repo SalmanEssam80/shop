@@ -11,10 +11,6 @@ class Product extends Model
 
     protected $guarded = ['id'];
 
-    public function product_option(){
-        return $this->belongsTo(product_option::class);
-    }
-
     public function like(){
         return $this->hasMany(Like::class);
     }

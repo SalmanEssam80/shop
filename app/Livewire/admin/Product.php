@@ -52,7 +52,6 @@ class Product extends Component
             ModelsProduct::create([
                 'name'        => $this->name,
                 'weight'        => $this->weight,
-                'barcode' =>        "00000",
                 'description' => $this->description,
                 'stock'       => $this->stock,
                 'price'        => $this->price,

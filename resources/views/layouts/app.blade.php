@@ -131,13 +131,10 @@
                         <li class="dropdown ">
                             <a href="{{ route('shop') }}">Shop</a>
                         </li>
-                        <li class="dropdown ">
-                            <a href="{{ route('blog') }}">Blog</a>
-                        </li>
                         @auth
-                        <li class="dropdown ">
+                        {{-- <li class="dropdown ">
                             <a href="{{ route('user_dashboard') }}">Dashboard</a>
-                        </li>
+                        </li> --}}
                         <li class="dropdown ">
                             <a href="{{ route('cart') }}">My cart</a>
                         </li>

@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
     <section class="page-header">
         <div class="container">
             <div class="row">
@@ -8,7 +7,7 @@
                     <div class="content">
                         <h1 class="page-name">Frequently Asked Questions</h1>
                         <ol class="breadcrumb">
-                            <li><a href="{{ url('/')}}">Home</a></li>
+                            <li><a href="{{ url('/') }}">Home</a></li>
                             <li class="active">f.a.q</li>
                         </ol>
                     </div>
@@ -26,16 +25,12 @@
                     <p>admin@mail.com</p>
                 </div>
                 <div class="col-md-8">
-                    <h4>Order Status</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas iusto, alias, tempora fuga quam eveniet neque excepturi aliquid. Eligendi, mollitia.</p>
-                    <h4>Shipping & Delivery</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam voluptatibus, incidunt similique nobis sint quisquam nam ab error consequuntur sit ullam ex eum exercitationem, excepturi explicabo beatae eos aspernatur odit ad perspiciatis, neque saepe magni enim. Maiores quia, quae sequi.</p>
-                    <h4>Payments</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus repellat id, laboriosam ipsa repudiandae quisquam, suscipit officiis, praesentium itaque facilis distinctio dolorum. Velit reiciendis libero laudantium corporis, delectus impedit sunt.</p>
-                    <h4>Returns & Exchanges</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam eaque nam, ab voluptas et debitis sint hic vel ratione dignissimos.</p>
-                    <h4>Privacy Policy</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae blanditiis quod saepe, inventore ipsum sint cum iste quae ratione nobis laborum minima autem totam similique, quia neque deleniti! Provident, suscipit.</p>
+                    @forelse ($faqs as $faq)
+                        <h4><i>{{ $faq->question }} ?</i></h4>
+                        <p>{{ $faq->answer }}</p>
+                    @empty
+                        <h1>{{ __('no FAQ yet') }}!</h1>
+                    @endforelse
                 </div>
             </div>
         </div>

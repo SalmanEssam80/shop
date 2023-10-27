@@ -1,13 +1,15 @@
 <?php
 
+use App\Http\Controllers\AdminHelperController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\productLikeController;
 use App\Http\Controllers\welcomeController;
 use App\Livewire\Admin\Category;
-use App\Livewire\Admin\Clients;
-use App\Livewire\Admin\ContactedMessage;
+use App\Livewire\Admin\Faq;
 use App\Livewire\Admin\Orders;
 use App\Livewire\Admin\Product;
+use App\Livewire\Admin\Users;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +28,7 @@ Route::get('/category/{id}',[welcomeController::class,'show_searched_item_by_cat
 Route::get('/product/{name}',[welcomeController::class,'show_searched_item_by_name'])->name('show_searched_item_by_name');
 Route::get('/search/{item}',[welcomeController::class,'show_searched_items'])->name('show_searched_items');
 Route::view('/thankYou','confirmation')->name('thanks_for_shoping');
-Route::view('/dashboard','user_dashboard')->name('user_dashboard');
 Route::view('/cart','cart')->name('cart');
-Route::view('/blog','blog')->name('blog');
 Route::view('/addresses','addresses')->name('addresses');
 Route::view('/order','orders')->name('order');
 Route::view('/shop','shop')->name('shop');
@@ -36,9 +36,9 @@ Route::view('/checkout','checkout')->name('checkout');
 Route::view('/about-us','about')->name('about_us');
 Route::view('/profile','profile')->name('user_profile');
 Route::view('/contact-us','contact_us')->name('contact_us');
-Route::view('/faq','faq')->name('faq');
 Route::view('/privacy','privacy')->name('privacy');
 
+Route::get('/faq',[welcomeController::class,'faq'])->name('faq');
 Route::get('/show_product/{id}',[welcomeController::class,'show_single_product'])->name('single_product');
 
 Route::get('searchItem', function()
@@ -52,11 +52,15 @@ Route::get('searchItem', function()
 Route::middleware('auth','checksuperadmin')->group(function (){
     Route::prefix('admin')->group(function (){
         Route::view('/dashboard','admin.dashboard ')->name('admin.dashboard');
-        Route::get('/products',Product::class)->name('admin.products');
-        Route::get('/category',Category::class)->name('admin.category');
-        Route::get('/orders',Orders::class)->name('admin.orders');
-        Route::get('/contactmessages',ContactedMessage::class)->name('admin.messages');
-        Route::get('/clients',Clients::class)->name('admin.clients');
+        Route::get('manage-category',Category::class)->name('admin.category');
+        Route::get('manage-products',Product::class)->name('admin.products');
+        Route::get('manage-orders',Orders::class)->name('admin.orders');
+        Route::get('manage-FAQ',Faq::class)->name('admin.faq');
+        Route::get('manage-customers',Users::class)->name('admin.users');
+        Route::get('show-customer/{id}',[AdminHelperController::class,'showSingleCustomer'])->name('admin.user_details');
+        // Route::get('/contactmessages',ContactedMessage::class)->name('admin.messages');
+        Route::get('manage-about-us-page',[AdminHelperController::class,'manage_aboutUs_page'])->name('admin.aboutUs');
+        Route::post('manage-about-us-page',[AdminHelperController::class,'store'])->name('admin.aboutUs');
     });
 });
 
@@ -74,4 +78,4 @@ Route::get('/contact/developer',function (){
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');

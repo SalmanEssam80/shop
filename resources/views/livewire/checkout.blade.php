@@ -94,11 +94,6 @@
                             @empty
                                 <p class="text-warnning">You Don't have any product</p>
                             @endforelse
-                            @if ($products->count())
-                            {{-- <div class="discount-code"> --}}
-                                {{-- <p>Have a discount ? <a data-toggle="modal" data-target="#coupon-modal" href="#!">enter it here</a></p> --}}
-                            {{-- </div> --}}
-                            @endif
                             <ul class="summary-prices">
                                 <li>
                                     <span>Subtotal:</span>
@@ -123,18 +118,3 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
-{{-- <div class="modal fade" id="coupon-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <form wire:submit.prevent="apply_coupon_codedd">
-                    <div class="form-group">
-                        <input class="form-control" type="text" wire:model="coupon" placeholder="Enter Coupon Code">
-                    </div>
-                    <button type="submit" class="btn btn-main">Apply Coupon</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> --}}
