@@ -1,5 +1,6 @@
 @extends('admin.layouts.app')
 @section('admin-content')
+<script src="{{ asset('cke/ckeditor.js') }}"></script>
     <div id="layoutSidenav_content">
         <main class="bg-light">
             <div class="container-fluid px-4 ">
@@ -22,6 +23,12 @@
                             <div class="form-floating">
                                 <textarea class="form-control" name="content" id="content" cols="30"
                                     rows="10" placeholder="Write Some thing in about us page"></textarea>
+                                    <script>
+                                        CKEDITOR.replace('content',{
+                                            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+                                            filebrowserUploadMethod: 'form'
+                                        });
+                                    </script>
                             </div>
                             @error('content')
                                 <span class="text-red-500 text-danger text-xs">{{ $message }}</span>

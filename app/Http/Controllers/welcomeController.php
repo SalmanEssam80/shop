@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutUs;
 use App\Models\Category;
 use App\Models\Faq;
 use App\Models\Product;
@@ -54,6 +55,13 @@ class welcomeController extends Controller
         return view('search', [
             'products' => $product,
             'searchItem' => $name
+        ]);
+    }
+
+    public function aboutUs()
+    {
+        return view('about',[
+            'data' => AboutUs::latest()->first()
         ]);
     }
 }
