@@ -35,10 +35,9 @@ class welcomeController extends Controller
 
     public function show_searched_item_by_category($id)
     {
-        $products = Product::where('category_id', $id)->get();
+        $category = Category::find($id)->first();
         return view('search', [
-            'products' => $products,
-            'searchItem' => $id
+            'category' => $category
         ]);
     }
 

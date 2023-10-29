@@ -5,13 +5,13 @@
             <div class="row">
                 <div class="title text-center">
                     <h2 class="border shadow padding" style="color: green;border-bottom:1px solid lightgreen"> Result for
-                        <span style="color: blue; background-color:cyan">{{ $searchItem }}</span>
-                        ({{ $products->count() . ') Items Found' }}
+                        <span style="color: blue; background-color:cyan">{{ $category->name }}</span>
+                        ({{ $category->product->count() . ') Items Found' }}
                     </h2>
                 </div>
             </div>
             <div class="row">
-                @forelse ($products as $product)
+                @forelse ($category->product as $product)
                     <div class="col-md-4">
                         <div class="product-item">
                             <div class="product-thumb">

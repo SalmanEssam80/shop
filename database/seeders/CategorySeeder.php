@@ -13,14 +13,8 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $list = ['html','css','javascript','php','python'];
-
-        foreach($list as $i){
-            Category::create([
-                'name' => $i,
-                'description' => 'this is a simple category just for testing my skills',
-                'thumbnail' => 'storage/category.jpg',
-            ]);
+        if (Category::count() == 0) {
+            Category::factory(6)->create();
         }
     }
 }

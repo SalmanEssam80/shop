@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <p>{!! $data->content !!}</p>
+                <p>{{ $data->content }}</p>
             </div>
         </div>
     </div>
