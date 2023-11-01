@@ -42,13 +42,6 @@ Route::view('/privacy','privacy')->name('privacy');
 Route::get('/faq',[welcomeController::class,'faq'])->name('faq');
 Route::get('/show_product/{id}',[welcomeController::class,'show_single_product'])->name('single_product');
 
-Route::get('searchItem', function()
-{
-    return view('search',[
-        'products' => $products,
-        'searchItem' => $item
-    ]);
-});
 
 Route::middleware('auth','checksuperadmin')->group(function (){
     Route::prefix('admin')->group(function (){
@@ -67,7 +60,6 @@ Route::middleware('auth','checksuperadmin')->group(function (){
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/like/{id}',[productLikeController::class,'like'])->name('like-product');
     Route::get('/add_to_cart/{id}',[CartController::class,'store'])->name('add_product_to_cart');
     Route::view('/MyCart','cart')->name('cart');
     Route::view('/MyProfile','profile')->name('user_profile');
