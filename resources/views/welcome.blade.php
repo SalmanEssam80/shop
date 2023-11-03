@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="row">
-            @livewire('products')
+            @livewire('trende-products')
         </div>
     </div>
 </section>
