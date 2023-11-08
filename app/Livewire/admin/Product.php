@@ -55,8 +55,8 @@ class Product extends Component
                 'description' => $this->description,
                 'stock'       => $this->stock,
                 'price'        => $this->price,
-                'thumbnail'  => $this->storeImage($this->thumbnail),
-                'image'  => $this->storeImage($this->image),
+                'thumbnail'  => $this->thumbnail->store('test','public'),
+                'image'  => $this->image->store('test','public'),
                 'category_id' => $this->category,
             ]);
 
@@ -126,15 +126,15 @@ class Product extends Component
             $this->validate([
                 'image' => 'image|max:3072',
             ]);
-            Storage::delete($product->image);
-            $product->image = $this->storeImage($this->image);
+            Storage::delete('public/'.$product->image);
+            $product->image = $this->image->store('test','public');
         }
         if ($this->thumbnail) {
             $this->validate([
-                'image' => 'image|max:3072',
+                'thumbnail' => 'image|max:3072',
             ]);
-            Storage::delete($product->thumbnail);
-            $product->thumbnail = $this->storeImage($this->thumbnail);
+            Storage::delete('public/'.$product->thumbnail);
+            $product->thumbnail = $this->thumbnail->store('test','public');
         }
         $product->save();
         $this->name = "";

@@ -21,7 +21,7 @@ class Users extends Component
     public function render()
     {
         return view('livewire.admin.users',[
-            'customers' => User::where('full_name','LIKE','%'.$this->search.'%')->latest()->paginate(50)
+            'customers' => User::where('name','LIKE','%'.$this->search.'%')->latest()->paginate(50)
         ])->layout('admin.layouts.wire_app');
     }
 }

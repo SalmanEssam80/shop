@@ -3,7 +3,7 @@
     <div class="col-md-4">
         <div class="product-item">
             <div class="product-thumb">
-                <img class="img-responsive" src="{{ config('app.url') . $trende->product->thumbnail }}" alt="product-img" />
+                <img class="img-responsive" src="{{  asset('storage/' . $trende->product->thumbnail )}}" alt="product-img" />
                 <div class="preview-meta">
                     <ul>
                         <li>

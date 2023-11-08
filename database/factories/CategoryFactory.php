@@ -21,7 +21,7 @@ class CategoryFactory extends Factory
         return [
             'name' => fake()->sentence(2) ,
             'description' => fake()->paragraph(2) ,
-            // 'thumbnail' => 'storage/test/product-'.random_int(1,10).'.jpg'
+            'thumbnail' => 'test/product-'.random_int(1,10).'.jpg'
         ];
     }
 }

@@ -25,8 +25,8 @@ class ProductFactory extends Factory
             'stock' => random_int(5,20),
             'category_id' => random_int(1,4),
             'description' => fake()->paragraph(),
-            'image' => 'storage/test/product-'.random_int(1,10).'.jpg',
-            'thumbnail' => 'storage/test/product-'.random_int(1,10).'.jpg'
+            'image' => 'test/product-'.random_int(1,10).'.jpg',
+            'thumbnail' => 'test/product-'.random_int(1,10).'.jpg'
         ];
     }
 }

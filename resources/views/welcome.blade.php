@@ -49,12 +49,12 @@
             <div class="col-md-6">
                 <div class="category-box">
                     <a href="{{ route('show_searched_item_by_category',$category->id) }}">
-                        <img src="{{ config('app.url').$category->thumbnail }}" alt="" />
-                        <div class="content">
-                            <h3 class="">{{ $category->name }}</h3>
-                            <p>{{ $category->description }}</p>
-                        </div>
+                        <img  src="{{ asset('storage/'.$category->thumbnail )}}" alt="">
                     </a>
+                </div>
+                <div class="content">
+                    <h3 class="">{{ $category->name }}</h3>
+                    <p>{{ $category->description }}</p>
                 </div>
             </div>
         @empty

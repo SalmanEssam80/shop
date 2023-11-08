@@ -5,7 +5,7 @@
         <div class="product-item">
             <div class="product-thumb">
                 <span class="bage">Sale</span>
-                <img class="img-responsive" src="{{ config('app.url').$product->thumbnail }}" alt="product-img" />
+                <img class="img-responsive" src="{{ asset('storage/'.$product->thumbnail) }}" alt="product-img" />
                 <div class="preview-meta">
                     <ul>
                         <li>

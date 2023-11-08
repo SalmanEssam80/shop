@@ -92,8 +92,12 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $category->name }}</td>
                                     <td>{{ $category->description }}</td>
-                                    <td><img width="50px" height="50px"
-                                            src="{{ config('app.url') . $category->thumbnail }}" alt="image"></td>
+                                    <td>
+                                        @if ($category->thumbnail)
+                                        <img width="50px" height="50px"
+                                            src="{{ asset('storage/' . $category->thumbnail )}}">
+                                        @endif
+                                    </td>
                                     <td>{{ date_format(date_create($category->created_at),'Y-m-d h:i:s a') }}</td>
                                     <td>
                                         <div class="btn-group">

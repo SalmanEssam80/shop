@@ -21,7 +21,7 @@
                 <div class="col-md-12">
                     <div class="post post-single">
                         <div class="post-thumb">
-                            <img class="img-responsive" src="{{ config('app.url') . $product->thumbnail }}" alt="">
+                            <img class="img-responsive" src="{{ asset('storage/' .$product->thumbnail )}}" alt="">
                         </div>
                         <br>
                         <h2 class="post-title">Details</h2>

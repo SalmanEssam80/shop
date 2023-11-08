@@ -98,7 +98,7 @@
                                 @endif
                                 @if ($edit_thumbnail)
                                     <br>Old Photo Preview:<br>
-                                    <img width="40%" height="40%" src="{{ config('app.url') . $edit_thumbnail }}">
+                                    <img width="40%" height="40%" src="{{ asset('storage/'.$edit_thumbnail) }}">
                                 @endif
 
                             </div>
@@ -120,7 +120,7 @@
                                 @endif
                                 @if ($edit_image)
                                     <br>Old image Preview:<br>
-                                    <img width="40%" height="40%" src="{{ config('app.url') . $edit_image }}">
+                                    <img width="40%" height="40%" src="{{ asset('storage/'.$edit_image )}}">
                                 @endif
                             </div>
                         </div>
@@ -169,9 +169,9 @@
                                     <td>{{ $Product->description }}</td>
                                     <td>{{ $Product->category_id }}</td>
 
-                                    <td><img width="50px" height="50px" src="{{ config('app.url') . $Product->image }}" alt="image"></td>
+                                    <td><img width="50px" height="50px" src="{{ asset('storage/'.$Product->image )}}" alt="image"></td>
 
-                                    <td><img width="50px" height="50px" src="{{ config('app.url') . $Product->thumbnail }}" alt="image"></td>
+                                    <td><img width="50px" height="50px" src="{{ asset('storage/'. $Product->thumbnail) }}" alt="image"></td>
                                     <td>{{ $Product->created_at->format('d-m-y') }}</td>
 
                                     <td>

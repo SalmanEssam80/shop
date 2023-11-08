@@ -36,7 +36,7 @@ class Category extends Component
             ModelsCategory::create([
                 'name' => $this->name,
                 'description' => $this->description,
-                'thumbnail' => $this->storeImage($this->thumbnail),
+                'thumbnail' => $this->thumbnail->store('photos','public'),
             ]);
 
 
@@ -47,17 +47,6 @@ class Category extends Component
 
             session()->flash('message', 'Category Created successfully.');
         }
-    }
-
-    public function storeImage($thumbnail)
-    {
-        if (!$thumbnail) {
-            return null;
-        }
-        $img = $this->thumbnail;
-        $name  = Str::random() . '.jpg';
-        Storage::disk('public')->put($name,$img);
-        return $name;
     }
 
     public function edit($id)
@@ -85,9 +74,9 @@ class Category extends Component
                 'thumbnail' => 'image',
             ]);
             if($category->thumbnail){
-                Storage::delete($category->thumbnail);
+                Storage::delete('public/'.$category->thumbnail);
             }
-            $category->thumbnail = $this->storeImage($this->thumbnail);
+            $category->thumbnail = $this->thumbnail->store('photos','public');
         }
         $category->save();
 
@@ -105,7 +94,7 @@ class Category extends Component
     {
         $category = ModelsCategory::findOrFail($id);
         if($category->thumbnail){
-            Storage::delete($category->thumbnail);
+            Storage::delete('public/'.$category->thumbnail);
         }
         $category->delete();
         session()->flash('message', 'Category Deleted Successfully.');
