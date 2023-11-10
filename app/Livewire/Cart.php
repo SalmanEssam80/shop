@@ -7,6 +7,8 @@ use Livewire\Component;
 
 class Cart extends Component
 {
+    public $total;
+    
     public function delete($id){
         ModelsCart::find($id)->delete();
     }

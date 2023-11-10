@@ -11,6 +11,7 @@ use App\Livewire\Admin\Faq;
 use App\Livewire\Admin\Orders;
 use App\Livewire\Admin\Product;
 use App\Livewire\Admin\Users;
+use App\Livewire\Subscribe;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,7 @@ Route::middleware('auth','checksuperadmin')->group(function (){
         Route::get('manage-orders',Orders::class)->name('admin.orders');
         Route::get('manage-FAQ',Faq::class)->name('admin.faq');
         Route::get('manage-customers',Users::class)->name('admin.users');
+        Route::get('manage-subscribers',Subscribe::class)->name('admin.subscribers');
         Route::get('show-customer/{id}',[AdminHelperController::class,'showSingleCustomer'])->name('admin.user_details');
         Route::get('/admin/contactMessages',[ContactedMessage::class])->name('admin.messages');
         Route::get('manage-about-us-page',[AdminHelperController::class,'manage_aboutUs_page'])->name('admin.aboutUs');

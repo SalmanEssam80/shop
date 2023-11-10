@@ -12,6 +12,10 @@ class ContactedMessage extends Component
     protected $paginationTheme = 'bootstrap';
     public $search;
 
+    public function delete($id) {
+        ContactUs::find($id)->delete();
+    }
+
     public function render()
     {
         return view('livewire.admin.contacted-message',[

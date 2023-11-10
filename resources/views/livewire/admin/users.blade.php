@@ -25,7 +25,6 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
-                                <th>Address</th>
                                 <th>Created_at</th>
                                 <th>Actions</th>
                             </tr>
@@ -45,7 +44,7 @@
                                         <div class="btn-group">
                                             <button class="btn btn-sm btn-danger" title="delete this row"
                                                 onclick="return confirm('{{ __('Are You Sure ?') }}')"
-                                                wire:click="delete({{ $customer->id }})" disabled>Delete</button>
+                                                wire:click="delete({{ $customer->id }})">Delete</button>
                                         </div>
                                     </td>
                                 </tr>

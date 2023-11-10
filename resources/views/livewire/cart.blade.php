@@ -64,7 +64,35 @@
                                             @endforelse
                                         </tbody>
                                     </table>
-                                    {{-- i am still conpuse in this logic --}}
+                                    <hr>
+                                    <div class="cart-total">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="subtotal">
+                                                    <div class="title">Subtotal</div>
+                                                    <div class="price" wire:model="total">${{ $total ? $total : '00' }}.00</div>
+                                                </div>
+                                                <div class="subtotal">
+                                                    <div class="title">Shipping</div>
+                                                    <div class="price">$00.10</div>
+                                                </div>
+                                                <div class="subtotal">
+                                                    <div class="title">Tax</div>
+                                                    <div class="price">$00.40</div>
+                                                </div>
+                                                <div class="subtotal">
+                                                    <div class="title">Discount</div>
+                                                    <div class="price">$00.55</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="total">
+                                                    <div class="title">Total</div>
+                                                    <div class="price">${{ $total ? $total : '00' }}.00</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <a href="{{ route('checkout') }}" class="btn btn-main pull-right "
                                         @if ($products->count() <= 0) disabled="" @endif>Checkout</a>
                                 </form>

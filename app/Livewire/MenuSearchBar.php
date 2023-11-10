@@ -7,7 +7,7 @@ use Livewire\Component;
 class MenuSearchBar extends Component
 {
     public $search;
-    
+
     public function searchBar()
     {
         return redirect()->route('show_searched_items',$this->search);

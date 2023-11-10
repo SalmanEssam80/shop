@@ -170,10 +170,7 @@
                                     <td>{{ $Product->category_id }}</td>
 
                                     <td><img width="50px" height="50px" src="{{ asset('storage/'.$Product->image )}}" alt="image"></td>
-
-                                    <td><img width="50px" height="50px" src="{{ asset('storage/'. $Product->thumbnail) }}" alt="image"></td>
                                     <td>{{ $Product->created_at->format('d-m-y') }}</td>
-
                                     <td>
                                         <div class="btn-group">
                                             <button class="btn btn-sm btn-warning" title="edit this row"

@@ -60,11 +60,6 @@ class Product extends Component
                 'category_id' => $this->category,
             ]);
 
-            // ProductCategory::create([
-            //     'product_id' => $this->id,
-            //     'category_id' => $this->category,
-            // ]);
-
             $this->name = "";
             $this->description = "";
             $this->image = "";
